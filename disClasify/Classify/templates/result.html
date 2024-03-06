@@ -1,0 +1,73 @@
+<!-- classifier_result.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #cce5ff; /* Blue background color */
+            text-align: center;
+            margin: 50px;
+        }
+
+        .result-card {
+            border: 1px solid #007bff; /* Blue border color */
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #007bff; /* Blue background color */
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.5);
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .result-card p {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .result {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Blue background color */
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Darker blue background color on hover */
+        }
+        h1{
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result-card">
+        <h1>Result</h1>
+        <p>The predicted class is: <span class="result">{{ result }}</span></p>
+        <p>{{rem}}</p>
+        <a href="/" class="back-button">Upload Another Image</a>
+    </div>
+</body>
+
+</html>

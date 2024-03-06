@@ -1,0 +1,107 @@
+<!-- upload_image.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #cce5ff; /* Blue background color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2), -10px -10px 40px rgba(255, 255, 255, 0.8);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #007bff; /* Blue heading color */
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            padding: 12px;
+            border: 1px solid #0056b3; /* Darker blue border color */
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #007bff; /* Blue background color */
+            color: #fff;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+            display: inline-block;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #0056b3; /* Darker blue background color on hover */
+        }
+
+        #file-name {
+            margin-top: 15px;
+            color: #0056b3; /* Darker blue text color */
+            font-size: 14px;
+        }
+
+        button[type='submit'] {
+            width: 120px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff; /* Blue background color */
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue background color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Upload an Image</h1>
+        <label for="image" class="custom-file-upload">Choose an image</label>
+        <input type="file" id="image" name="image" accept="image/*" required onchange="updateFileName()">
+        <br>
+        <span id="file-name"></span>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function updateFileName() {
+            var input = document.getElementById('image');
+            var fileName = input.files[0].name;
+            document.getElementById('file-name').innerText = "Selected File: " + fileName;
+        }
+    </script>
+</body>
+
+</html>
